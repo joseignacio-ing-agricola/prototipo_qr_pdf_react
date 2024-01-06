@@ -40,8 +40,5 @@ Instala las dependencias necesarias para el proyecto.
 Ejecuta la aplicación en modo de desarrollo.\
 Abre http://localhost:3000 para verlo en el navegador.
 
-La página se recargará si haces cambios.\
-También verás cualquier error lint en la consola.
-
 
 
