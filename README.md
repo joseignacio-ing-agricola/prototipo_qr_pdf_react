@@ -26,7 +26,7 @@ npm install --save react-pdf@^7.6.0
 npm install --save react-router-dom@^6.20.1
 npm install --save react-scripts@5.0.1
 npm install --save web-vitals@^2.1.4
-
+```
 ## Scripts Disponibles
 
 En el directorio del proyecto, puedes ejecutar:
