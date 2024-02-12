@@ -3,7 +3,7 @@ import React from 'react';
 import QRCode from 'qrcode.react';
 
 const QRCodePage = () => {
-  const catalogUrl = 'http://localhost:3002/pdf';
+  const catalogUrl = 'http://localhost:3000/pdf';
 
   return (
     <div className="QRCodePage">
