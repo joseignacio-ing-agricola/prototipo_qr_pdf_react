@@ -1,28 +1,32 @@
 // App.js
 import './styles.css';
-import './header.css';
-import './footer.css';
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import QRCodePage from './QRCodePage';
 import PDFPage from './PDFPage';
 import AdminPage from './AdminPage';
 import SelectPFD from './SelectPFD';
-import LoginPage from './LoginPage';  // Importa el componente de inicio de sesión
-import { AuthProvider } from './AuthContext';  // Importa el proveedor de contexto de autenticación
+import LoginPage from './LoginPage';
+import { AuthProvider } from './AuthContext';
+import BasicMenu from './BasicMenu';
 
-const Header = () => (
+const Header = ({ handleLogout }) => (  
   <header>
     <div className="header-content">
-      <img
-        src="/ruta/de/la/imagen.jpg"
-        alt="Descripción de la imagen"
-        className="header-image"
-      />
-      <h1>Tu Aplicación</h1>
-      
+      <div className="left-header">
+        <img
+          src="/ruta/de/la/imagen.jpg"
+          alt="Descripción de la imagen"
+          className="header-image"
+        />
+      </div>
+      <div className="center-header">
+        <h1>Tu Aplicación</h1>
+      </div>
+      <div className="right-header">
+        <BasicMenu handleLogout={handleLogout} />
+      </div>
     </div>
-    
   </header>
 );
 
@@ -33,9 +37,15 @@ const Footer = () => (
 );
 
 const App = () => {
+  // Definir la función handleLogout
+  const handleLogout = () => {
+    // Lógica de cierre de sesión aquí
+    console.log('Cierre de sesión');
+  };
+
   return (
     <Router>
-      <AuthProvider>  {/* Envuelve tu aplicación con el proveedor de contexto de autenticación */}
+      <AuthProvider>
         <Suspense fallback={<div>Loading...</div>}>
           <div className="container">
             <Routes>
@@ -43,7 +53,7 @@ const App = () => {
                 path="/qrcode"
                 element={
                   <>
-                    <Header />
+                    <Header handleLogout={handleLogout} />
                     <QRCodePage />
                     <Footer />
                   </>
@@ -57,7 +67,7 @@ const App = () => {
                 path="/adminpage"
                 element={
                   <>
-                    <Header />
+                    <Header handleLogout={handleLogout} />
                     <AdminPage />
                     <Footer />
                   </>
@@ -67,14 +77,14 @@ const App = () => {
                 path="/SelectPFD"
                 element={
                   <>
-                    <Header />
+                    <Header handleLogout={handleLogout} />
                     <SelectPFD/>
                     <Footer />
                   </>
                 }
               />
               <Route
-                path="/login"  // Agrega una ruta para el componente de inicio de sesión
+                path="/"
                 element={<LoginPage />}
               />
             </Routes>
@@ -86,3 +96,4 @@ const App = () => {
 };
 
 export default App;
+

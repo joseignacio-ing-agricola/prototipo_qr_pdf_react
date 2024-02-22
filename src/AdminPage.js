@@ -8,7 +8,7 @@ const AdminPage = () => {
 
   if (!isLoggedIn) {
     // Si el usuario no ha iniciado sesión, redirige al componente de inicio de sesión
-    return <Navigate to="/login" />;
+    return <Navigate to="/" />;
   }
 
   return (
@@ -21,9 +21,7 @@ const AdminPage = () => {
           <li>
             <Link to="/pdf">Ver PDF (Carta)</Link>
           </li>
-          <li>
-            <Link to="/adminpage">Ver adminpage</Link>
-          </li>
+          
         </ul>
       </nav>
       {/* ... contenido de AdminPage ... */}
