@@ -85,7 +85,13 @@ const App = () => {
               />
               <Route
                 path="/"
-                element={<LoginPage />}
+                element={
+                <>
+                  <LoginPage />
+                  <Footer />
+                </>
+              }
+                
               />
             </Routes>
           </div>

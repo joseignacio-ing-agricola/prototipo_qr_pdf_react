@@ -28,6 +28,10 @@ npm install --save react-scripts@5.0.1
 npm install --save web-vitals@^2.1.4
 npm install --save-dev @babel/plugin-proposal-private-property-in-object
 npm install @material-ui/core --force
+npm install react-tooltip --save
+npm install --save-dev @babel/plugin-proposal-private-property-in-object
+npm install @mui/material @emotion/react @emotion/styled
+
 
 
 ```
