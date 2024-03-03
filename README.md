@@ -31,6 +31,7 @@ npm install @material-ui/core --force
 npm install react-tooltip --save
 npm install --save-dev @babel/plugin-proposal-private-property-in-object
 npm install @mui/material @emotion/react @emotion/styled
+npm install @mui/icons-material
 
 
 

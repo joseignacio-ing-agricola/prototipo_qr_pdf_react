@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
+import Brightness4Icon from '@mui/icons-material/Brightness4'; // Icono para cambiar el tema
 import './styles.css';
 
 const LoginPage = () => {
@@ -12,6 +13,8 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const [theme, setTheme] = useState('light'); // Estado para el tema
+  const [fontSize, setFontSize] = useState(16); // Estado para el tamaño de la letra
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -41,26 +44,31 @@ const LoginPage = () => {
   };
 
   const toggleTheme = () => {
-    document.body.classList.toggle('dark-theme');
+    setTheme(theme === 'light' ? 'dark' : 'light'); // Cambiar entre temas
   };
 
   const increaseFontSize = () => {
-    changeFontSize(2);
+    setFontSize((prevSize) => prevSize + 2); // Aumentar el tamaño de la letra
   };
 
   const decreaseFontSize = () => {
-    changeFontSize(-2);
-  };
-
-  const changeFontSize = (delta) => {
-    const currentFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
-    const newFontSize = currentFontSize + delta;
-    document.documentElement.style.fontSize = newFontSize + 'px';
+    setFontSize((prevSize) => prevSize - 2); // Disminuir el tamaño de la letra
   };
 
   return (
-    <div className="centered-content">
+    <div className={`centered-content ${theme === 'dark' ? 'dark-theme' : ''}`} style={{ fontSize: `${fontSize}px` }}>
       <div className="login-container">
+      <div className="login-controls-container">
+          <div className="control-box" onClick={toggleTheme}>
+            <Brightness4Icon /> {/* Icono para cambiar el tema */}
+          </div>
+          <div className="control-box" onClick={increaseFontSize}>
+            A+ {/* Botón para aumentar el tamaño de la letra */}
+          </div>
+          <div className="control-box" onClick={decreaseFontSize}>
+            A- {/* Botón para reducir el tamaño de la letra */}
+          </div>
+        </div>
         <h2>Iniciar sesión</h2>
         <form onSubmit={handleLogin}>
           <Box sx={{ '& .MuiTextField-root': { marginBottom: 1 } }}>
@@ -84,17 +92,7 @@ const LoginPage = () => {
           </Button>
           {error && <p className="error-message">{error}</p>}
         </form>
-        <div className="login-controls-container">
-          <div className="control-box" onClick={toggleTheme}>
-            <span>Cambiar Tema</span>
-          </div>
-          <div className="control-box" onClick={increaseFontSize}>
-            <span>Agrandar Letras</span>
-          </div>
-          <div className="control-box" onClick={decreaseFontSize}>
-            <span>Reducir Letras</span>
-          </div>
-        </div>
+        
       </div>
     </div>
   );

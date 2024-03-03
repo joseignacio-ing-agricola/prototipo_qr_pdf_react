@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './SelectPDF.css';
+import './styles.css';
 
 const SelectPDF = () => {
   const [selectedFile, setSelectedFile] = useState(null);

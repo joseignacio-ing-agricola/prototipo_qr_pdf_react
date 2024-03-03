@@ -270,7 +270,7 @@ footer {
   border: 1px solid #ccc; /* Borde sólido */
   border-radius: 50px; /* Borde redondeado */
   cursor: pointer; /* Cambiar el cursor al pasar por encima */
-  width: 100px; /* Ancho */
+  width: 30px; /* Ancho */
   text-align: center; /* Alineación del texto en el centro */
 }
 
@@ -280,13 +280,13 @@ footer {
   padding: 1% 2%; /* Espaciado interno */
   border: none; /* Sin borde */
   border-radius: 50px; /* Borde redondeado */
-  background-color: #007bff; /* Color de fondo */
+  background-color: #0056b3; /* Nuevo color de fondo */
   color: #fff; /* Color del texto */
   cursor: pointer; /* Cambiar el cursor al pasar por encima */
 }
 
 .control-box button:hover {
-  background-color: #0056b3; /* Color de fondo al pasar el ratón */
+  background-color: #004080; /* Color de fondo al pasar el ratón */
 }
 
 /* Estilos para el tema oscuro */
@@ -299,4 +299,37 @@ footer {
 .dark-theme .login-container {
   background-color: #444; /* Color de fondo oscuro para el contenedor de inicio de sesión */
   border-color: #666; /* Color de borde oscuro */
+}
+/* Estilos SelectPDF */
+
+.upload-container {
+  max-width: 300px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.success-message {
+  color: green;
+  margin-top: 10px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
 }
