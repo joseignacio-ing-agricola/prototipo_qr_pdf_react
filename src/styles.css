@@ -16,8 +16,31 @@ html, body {
 header {
   background-color: #3498db; /* Color de fondo del encabezado */
   color: #fff; /* Color del texto del encabezado */
-  padding: 2%; /* Espaciado interno del encabezado */
+  padding: 0.2vh 1%; /* Reducimos el espaciado interno del header */
   text-align: center; /* Alineación del texto en el centro */
+}
+
+/* Estilos para el menú básico */
+.basic-menu button {
+  padding: 0.8em 1.5em;
+  font-size: 1.1em;
+  background-color: #d63031;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.basic-menu {
+  background-color: #3498db; /* Ajusta esto al color del header */
+  padding: 10px; /* Ajusta el padding según sea necesario */
+}
+
+.basic-menu button:hover {
+  background-color: #922b3e; /* Cambia el color al pasar el cursor sobre el botón */
 }
 
 /* Estilos para el contenido del encabezado */
@@ -26,13 +49,7 @@ header {
   flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
   justify-content: space-between; /* Distribución del espacio entre los elementos */
   align-items: center; /* Alineación vertical al centro */
-  padding: 2% 5%; /* Espaciado interno del contenido del encabezado */
-}
-
-/* Estilos para la imagen del encabezado */
-.header-image {
-  width: 100%; /* Ancho completo */
-  padding: 2% 5%; /* Espaciado interno de la imagen del encabezado */
+  padding: 2% 1%; /* Espaciado interno del contenido del encabezado */
 }
 
 /* Estilos para el menú derecho del encabezado */
@@ -52,37 +69,16 @@ header {
 footer {
   background-color: #2ecc71; /* Color de fondo del pie de página */
   color: #fff; /* Color del texto del pie de página */
-  padding: 2%; /* Espaciado interno */
+  padding: 1vh; /* Espaciado interno del footer (1% del alto de la pantalla) */
   text-align: center; /* Alineación del texto en el centro */
   position: fixed; /* Fijar en la parte inferior de la ventana */
   bottom: 0; /* Alinear en la parte inferior */
   width: 100%; /* Ancho completo */
-}
-
-/* Estilos para la página de código QR */
-.QRCodePage {
-  display: flex; /* Mostrar como flexbox */
-  justify-content: center; /* Alinear en el centro horizontalmente */
-  align-items: center; /* Alinear en el centro verticalmente */
-  height: 75vh; /* Altura del 75% del viewport */
-}
-
-/* Estilos para contenido centrado */
-.centered-content {
-  display: flex; /* Mostrar como flexbox */
-  justify-content: center; /* Centrar horizontalmente */
-  align-items: center; /* Centrar verticalmente */
-  height: 100vh; /* Altura del 100% de la ventana */
+  max-height: 25vh; /* Altura máxima del footer (25% del alto de la pantalla) */
+  overflow: hidden; /* Ocultar contenido que supere la altura máxima */
 }
 
 /* Estilos para el contenedor de carga de archivos */
-.upload-container {
-  margin-top: 2%; /* Margen superior */
-  display: flex; /* Mostrar como flexbox */
-  flex-direction: column; /* Dirección de los elementos en columna */
-  align-items: center; /* Alinear en el centro horizontalmente */
-  justify-content: flex-start; /* Justificar hacia arriba */
-}
 
 /* Estilos para el campo de carga de archivos */
 .upload-container input[type="file"] {
@@ -102,39 +98,28 @@ footer {
 }
 
 /* Estilos para el contenedor de PDF */
+/* Estilos para el contenedor de la página PDF */
+/* Estilos para el contenedor de la página PDF */
+
+/* Estilos para el contenedor interno de la página PDF */
 .PDFContainer {
-  text-align: center; /* Centra el contenido horizontalmente */
-  height: 100vh; /* Altura del 100% de la ventana */
-  line-height: 100vh; /* Centra verticalmente el contenido */
+  text-align: center; /* Alineación del texto en el centro */
+  height: 100vh; /* Altura del 100% del viewport */
 }
+
+.PDFPage {
+  display: inline-block; /* Mostrar como bloque en línea */
+  vertical-align: middle; /* Alinear verticalmente al centro */
+}
+
+
 
 /* Estilos para el contenedor principal */
 .centered-content {
   display: flex; /* Mostrar como flexbox */
-  justify-content: center; /* Alinear en el centro horizontalmente */
-  align-items: center; /* Alinear en el centro verticalmente */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
   height: 100vh; /* Altura del 100% de la ventana */
-}
-
-/* Estilos para la página de PDF */
-.PDFPage {
-  text-align: center; /* Alineación del texto en el centro */
-}
-
-/* Estilos para las páginas de PDF */
-.PDFPage .react-pdf__Page {
-  display: block; /* Mostrar como bloque */
-  margin: 2% auto; /* Margen 2% arriba y abajo, auto a los lados */
-  max-width: 100%; /* Ancho máximo del 100% */
-}
-
-/* Estilos para el contenedor de administrador */
-.admin-container {
-  display: flex; /* Mostrar como flexbox */
-  justify-content: center; /* Alinear en el centro horizontalmente */
-  align-items: center; /* Alinear en el centro verticalmente */
-  height: 100vh; /* Altura del 100% del viewport */
-  perspective: 1500px; /* Perspectiva para efectos 3D */
 }
 
 /* Estilos para botones grandes */
@@ -188,15 +173,48 @@ footer {
   }
 }
 
+/* Estilos para tamaños de pantalla pequeños */
 @media only screen and (max-width: 480px) {
-  /* Cambiando a un diseño de columna para pantallas muy pequeñas */
-  .header-content {
-    flex-direction: column;
+  /* Ajustes para el header */
+  header {
+    padding: 10px;
   }
   
-  /* Ajustando el margen para pantallas muy pequeñas */
+  .header-image {
+    width: 100%;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  
   .right-header {
-    margin: 2% 0;
+    margin-top: 10px;
+  }
+  
+  .basic-menu button {
+    padding: 5px 10px;
+  }
+}
+
+/* Estilos para tamaños de pantalla muy pequeños */
+@media only screen and (max-width: 300px) {
+  /* Ajustes adicionales para el header */
+  header {
+    padding: 3px;
+  }
+
+  .header-content {
+    padding: 3px;
+  }
+
+  .right-header {
+    margin-top: 5px;
+  }
+
+  .basic-menu button {
+    padding: 3px 6px;
   }
 }
 
@@ -222,29 +240,26 @@ footer {
 .login-container form {
   display: flex; /* Mostrar como flexbox */
   flex-direction: column; /* Dirección de los elementos en columna */
-  
 }
 
 .login-container label {
   margin-bottom: 400%; /* Margen inferior */
 }
 
-.login-container input[type="text"],
-.login-container input[type="password"] {
-  padding: 3%; /* Espaciado interno */
-  border-radius: 1px; /* Borde redondeado */
-  border: 1px solid #ccc; /* Borde sólido */
-  
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+  outline: none !important; /* Elimina el contorno al enfocar */
+  border-width: 0 !important; /* Establece el ancho del borde en cero al enfocar */
+  box-shadow: none !important; /* Elimina cualquier sombra al enfocar */
 }
 
 .login-container button[type="submit"] {
-  padding: 2% 4%; /* Espaciado interno */
-  border: none; /* Sin borde */
+  padding: 1% 1%; /* Espaciado interno */
   border-radius: 400px; /* Borde redondeado */
   background-color: #007bff; /* Color de fondo */
   color: #fff; /* Color del texto */
   cursor: pointer; /* Cambiar el cursor al pasar por encima */
-  margin-top: 2%; /* Margen superior */
+  margin-top: 1%; /* Margen superior */
 }
 
 .login-container button[type="submit"]:hover {
@@ -253,33 +268,41 @@ footer {
 
 .login-container .error-message {
   color: red; /* Color de texto rojo */
-  margin-top: 2%; /* Margen superior */
+  margin-top: 1%; /* Margen superior */
   text-align: center; /* Alineación del texto en el centro */
 }
 
 /* Estilos para el contenedor de los controles de tema y tamaño de fuente */
 .login-controls-container {
-  margin-top: 10%; /* Margen superior */
   display: flex; /* Mostrar como flexbox */
-  justify-content: space-between; /* Distribuir el espacio entre los elementos */
+  justify-content: flex-end; /* Alinear los elementos hacia la derecha */
+  align-items: center; /* Alinear los elementos verticalmente al centro */
+  margin-bottom: 20px; /* Añadir espacio inferior */
 }
 
 /* Estilos para el cuadro de control */
 .control-box {
-  padding: 1%; /* Espaciado interno */
-  border: 1px solid #ccc; /* Borde sólido */
-  border-radius: 50px; /* Borde redondeado */
+  width: 40px; /* Ancho del botón */
+  height: 40px; /* Altura del botón */
+  padding: 5px; /* Espaciado interno */
+  margin-left: 10px; /* Añadir margen izquierdo */
+  border: 1px solid #d828b8; /* Borde sólido */
+  border-radius: 10px; /* Borde redondeado */
   cursor: pointer; /* Cambiar el cursor al pasar por encima */
-  width: 30px; /* Ancho */
   text-align: center; /* Alineación del texto en el centro */
+  background-color: #0056b3; /* Nuevo color de fondo */
+  display: flex; /* Mostrar como flexbox */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
 }
 
 /* Estilos para los botones de los controles */
 .control-box button {
-  width: 100%; /* Ancho completo */
-  padding: 1% 2%; /* Espaciado interno */
+  width: 100%; /* Ancho del botón */
+  height: 100%; /* Altura del botón */
+  padding: 0; /* Sin padding */
   border: none; /* Sin borde */
-  border-radius: 50px; /* Borde redondeado */
+  border-radius: 10px; /* Borde redondeado */
   background-color: #0056b3; /* Nuevo color de fondo */
   color: #fff; /* Color del texto */
   cursor: pointer; /* Cambiar el cursor al pasar por encima */
@@ -300,36 +323,180 @@ footer {
   background-color: #444; /* Color de fondo oscuro para el contenedor de inicio de sesión */
   border-color: #666; /* Color de borde oscuro */
 }
+
 /* Estilos SelectPDF */
 
-.upload-container {
-  max-width: 300px;
-  margin: 20px auto;
-  text-align: center;
+/* Estilos para el contenedor de carga de archivos */
+
+.upload-container input[type="file"] {
+  margin-bottom: 100px; /* Margen inferior para el campo de carga de archivos */
 }
+
+.upload-container button {
+  background-color: #007bff; /* Color de fondo del botón */
+  color: white; /* Color del texto */
+  padding: 10px 20px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Borde redondeado */
+  cursor: pointer; /* Cambiar el cursor al pasar por encima */
+}
+
+.upload-container button:hover {
+  background-color: #0056b3; /* Color de fondo al pasar el ratón */
+}
+
 
 input {
   margin-bottom: 10px;
 }
 
 button {
-  background-color: #4caf50;
+  background-color: #007bff;
   color: white;
-  padding: 10px;
+  padding: 10px 20px;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #0056b3;
 }
 
-.success-message {
-  color: green;
-  margin-top: 10px;
+/* Estilos React-PDF */
+
+.PDFContainer {
+  text-align: center;
 }
 
-.error-message {
-  color: red;
-  margin-top: 10px;
+.PageNumber {
+  margin-top: 20px;
+}
+
+/* Estilos específicos para la página de código QR */
+.QRCodePage {
+  display: flex;
+  justify-content: center; /* Ajustamos el centrado horizontal */
+  align-items: center;
+  height: 20vh;
+  flex-direction: column;
+}
+
+
+.download-button-container {
+  margin: 0px 0;
+}
+
+
+.qr-container {
+  width: auto; /* Ancho automático */
+  margin: 0 auto; /* Centrar horizontalmente */
+
+}
+
+
+
+
+
+
+/* Estilos para el menú básico */
+.BasicMenu {
+  list-style-type: none; /* Sin viñetas */
+  padding: 0; /* Sin relleno */
+  margin: 0; /* Sin margen */
+}
+
+.BasicMenu li {
+  margin-bottom: 0px; /* Margen inferior */
+}
+
+.BasicMenu a {
+  text-decoration: none; /* Sin subrayado */
+  color: inherit; /* Color heredado */
+}
+
+/* Estilos para la página de administrador */
+.admin-container {
+  display: flex; /* Mostrar como flexbox */
+  justify-content: center; /* Centrar horizontalmente */
+  margin-top: 20px; /* Ajusta el margen superior según sea necesario */
+}
+
+.admin-buttons {
+  display: flex; /* Mostrar como flexbox */
+  justify-content: space-around; /* Distribución uniforme */
+  margin-bottom: 0px; /* Margen inferior */
+}
+
+/* Estilos para los botones de administrador */
+.admin-buttons button {
+  padding: 00px 0px; /* Espaciado interno */
+  font-size: 1.5em; /* Tamaño de fuente */
+}
+
+/* Estilos para los botones de administrador en dispositivos pequeños */
+@media (max-width: 600px) {
+  .admin-buttons {
+    flex-direction: column; /* Cambiar a una columna */
+    align-items: center; /* Alinear al centro */
+  }
+
+  .admin-buttons button {
+    margin-bottom: 10px; /* Margen inferior */
+  }
+}
+
+/* Estilos para el área de vista previa */
+.preview-area {
+  text-align: center; /* Alineación del texto en el centro */
+}
+
+/* Estilos para el área de vista previa en dispositivos pequeños */
+@media (max-width: 600px) {
+  .preview-area img {
+    max-width: 100%; /* Ancho máximo del 100% */
+  }
+}
+
+/* Estilos para el contenedor del logo y los botones */
+.logo-controls-container {
+  display: flex;
+  align-items: center; /* Alinear verticalmente los elementos */
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center; /* Ahora los botones estarán centrados horizontalmente */
+  align-items: center; /* Alinear verticalmente los elementos */
+  flex-grow: 1; /* Los botones ocuparán todo el espacio disponible */
+}
+/* Estilos para el contenedor del logo */
+.logo-container {
+  margin-left: auto; /* Empuja el logo hacia la izquierda */
+}
+
+/* Estilos para el logo */
+.logo {
+  width: 40px; /* Ajusta el tamaño según sea necesario */
+  height: 40px;
+  padding: 5px; /* Añade un poco de espacio alrededor */
+}
+
+/* Estilos para los botones */
+.control-box {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  margin-left: 5px; /* Añade espacio entre los botones */
+  border: 2px solid #741ed7;
+  border-radius: 1px;
+  cursor: pointer;
+  text-align: center;
+  background-color: #0056b3; /* Color base de fondo */
+  transition: background-color 0.1s ease; /* Transición suave */
+}
+
+/* Estilos para el efecto de cambio de color al pasar el ratón */
+.control-box:hover {
+  background-color: #004080; /* Color de fondo al pasar el ratón */
 }
