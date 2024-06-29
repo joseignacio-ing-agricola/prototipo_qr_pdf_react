@@ -22,7 +22,7 @@ const AdminPage = () => {
     }
   }, []);
 
-  // Función que maneja el clic en los botones   s
+  // Función que maneja el clic en los botones   s   
   const handleClick = (buttonId) => {
     setActiveButton(buttonId === activeButton ? null : buttonId); // Activa o desactiva el botón según su estado actual
     // Navega a la ruta correspondiente al botón clicado
